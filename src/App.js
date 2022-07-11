@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import { Button } from "./components/Button";
 
 function App() {
+  const footerYear = "2077";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+
+      {/* lista de tareas */}
+      <main>
+        <ul>
+          <li>
+            <label>
+              <input type="checkbox" />
+              Tarea #1
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              Tarea #2
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              Tarea #3
+            </label>
+          </li>
+        </ul>
+      </main>
+
+      <Button
+        tipo="danger"
+        text="Cancelar"
+        cuandoClickeo={() => {
+          console.log("CANCELAR CARAJO");
+        }}
+      />
+      <Button
+        tipo="success"
+        text="Aceptar"
+        cuandoClickeo={() => {
+          console.log("ACEPTADITO");
+        }}
+      />
+      <Footer year={footerYear} />
     </div>
   );
 }
