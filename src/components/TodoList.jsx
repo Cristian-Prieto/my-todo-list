@@ -2,6 +2,8 @@ import { useState } from "react";
 import { AddTodo } from "./AddTodo";
 import { TodoItem } from "./TodoItem";
 
+import styles from "./TodoList.module.css";
+
 const INITIAL_TODOS = [
   {
     title: "Tarea #1",
@@ -60,7 +62,13 @@ export function TodoList() {
 
   // TODO: Define function to add a new todo
   const addTodo = (todoTitle) => {
-    console.log("TodoList::addTodo::todoTitle:", todoTitle)
+    const alreadyExists = todos.find((todo) => todo.title === todoTitle);
+
+    if (alreadyExists) {
+      alert("Todo already exists");
+      return;
+    }
+
     const updatedTodoList = [...todos];
     updatedTodoList.unshift({
       title: todoTitle,
@@ -71,14 +79,23 @@ export function TodoList() {
   };
 
   return (
-    <main>
+    <main className={styles.main}>
       {/* Componente aun no definido. Se va a encargar de manejar el nombre de la tarea y ejecutar addTodo cuando corresponda. */}
-      <AddTodo addTodo={addTodo}/>
-      <ul>
-        {todos.map((todo) => (
-          <TodoItem key={todo.title} todo={todo} changeTodoState={changeTodoState} deleteTodo={deleteTodo} />
-        ))}
-      </ul>
+      <AddTodo addTodo={addTodo} />
+      {todos.length > 0 ? (
+        <ul className={styles.list}>
+          {todos.map((todo) => (
+            <TodoItem
+              key={todo.title}
+              todo={todo}
+              changeTodoState={changeTodoState}
+              deleteTodo={deleteTodo}
+            />
+          ))}
+        </ul>
+      ) : (
+        <div className={styles.empty}>No todos.</div>
+      )}
     </main>
   );
 }

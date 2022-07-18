@@ -1,3 +1,5 @@
+import styles from "./Header.module.css"
+
 export function Header() {
-  return <header>TodoApp - [Keep track of your tasks]</header>;
+  return <header className={styles.header}>TodoApp</header>;
 }

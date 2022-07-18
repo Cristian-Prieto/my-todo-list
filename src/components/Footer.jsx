@@ -1,3 +1,5 @@
+import styles from "./Footer.module.css"
+
 export function Footer(props) {
-  return <footer>Copyright {props.year} - Dev Bros</footer>;
+  return <footer className={styles.footer}>Copyright {props.year} - Dev Bros</footer>;
 }

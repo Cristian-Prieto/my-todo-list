@@ -1,0 +1,19 @@
+.main {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.list {
+  padding: 0.5rem;
+  margin-top: 1rem;
+
+  border-radius: 0.25rem;
+  background-color: #4b5563;
+
+  list-style: none;
+}
+
+.empty {
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
