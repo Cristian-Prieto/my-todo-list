@@ -1,9 +1,4 @@
-export function Button({ tipo, text, cuandoClickeo }) {
-  /* 
-  props = {
-    text: "algun string"
-  }
-  */
+export function Button({ tipo, text, onClick }) {
   const bgColor = tipo === "danger" ? "red" : "tomato";
 
   return (
@@ -16,7 +11,7 @@ export function Button({ tipo, text, cuandoClickeo }) {
         color: "white",
         marginRight: "8px",
       }}
-      onClick={cuandoClickeo}
+      onClick={onClick}
     >
       {text}
     </button>

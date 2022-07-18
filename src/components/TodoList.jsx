@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AddTodo } from "./AddTodo";
 import { TodoItem } from "./TodoItem";
 
 const INITIAL_TODOS = [
@@ -58,12 +59,21 @@ export function TodoList() {
   };
 
   // TODO: Define function to add a new todo
-  const addTodo = (todoTitle) => {};
+  const addTodo = (todoTitle) => {
+    console.log("TodoList::addTodo::todoTitle:", todoTitle)
+    const updatedTodoList = [...todos];
+    updatedTodoList.unshift({
+      title: todoTitle,
+      completed: false,
+    });
+
+    setTodos(updatedTodoList);
+  };
 
   return (
     <main>
       {/* Componente aun no definido. Se va a encargar de manejar el nombre de la tarea y ejecutar addTodo cuando corresponda. */}
-      {/* <AddTodo /> */}
+      <AddTodo addTodo={addTodo}/>
       <ul>
         {todos.map((todo) => (
           <TodoItem key={todo.title} todo={todo} changeTodoState={changeTodoState} deleteTodo={deleteTodo} />

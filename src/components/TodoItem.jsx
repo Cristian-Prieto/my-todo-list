@@ -13,7 +13,7 @@ export function TodoItem({ todo, changeTodoState, deleteTodo }) {
         >
           {todo.title}
         </span>
-        <Button text="X" cuandoClickeo={() => deleteTodo(todo)} />
+        <Button text="X" onClick={() => deleteTodo(todo)} />
       </label>
     </li>
   );
