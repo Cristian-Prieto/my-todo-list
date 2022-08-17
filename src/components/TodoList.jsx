@@ -80,7 +80,7 @@ export function TodoList() {
 
   return (
     <main className={styles.main}>
-      {/* Componente aun no definido. Se va a encargar de manejar el nombre de la tarea y ejecutar addTodo cuando corresponda. */}
+      {/* Se va a encargar de manejar el nombre de la tarea y ejecutar addTodo cuando corresponda. */}
       <AddTodo addTodo={addTodo} />
       {todos.length > 0 ? (
         <ul className={styles.list}>

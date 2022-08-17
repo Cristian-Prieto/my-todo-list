@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import styles from "./AddTodo.module.css";
+
 export function AddTodo({ addTodo }) {
   const [inputValue, setInputValue] = useState("")  
 
@@ -14,14 +16,15 @@ export function AddTodo({ addTodo }) {
   } 
   
   return (
-    <div className="form">
+    <div className={styles.form}>
       <input
+        className={styles.input}
         name="title"
         placeholder="Task title..."
         value={inputValue}
         onChange={handleChange}
       />
-      <button onClick={(handleSaveTodo)}>SAVE</button>
+      <button className={styles.button}onClick={(handleSaveTodo)}>SAVE</button>
     </div>
   )
 }
